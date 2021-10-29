@@ -6,6 +6,7 @@ export const useCityWeather = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [city, setCity] = useState<string>("");
   const [results, setResults] = useState<ResultsType>({
+    time: "",
     country: "",
     cityName: "",
     temperature: "",
@@ -22,6 +23,7 @@ export const useCityWeather = () => {
       )
       .then((res) => {
         setResults({
+          time: res.data.location.localtime,
           country: res.data.location.country,
           cityName: res.data.location.name,
           temperature: res.data.current.temp_c,

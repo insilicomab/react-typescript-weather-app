@@ -92,6 +92,11 @@ button:hover {
   font-size: 2rem;
 }
 
+.results-time {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
 .results-temp {
   font-size: 6rem;
   margin: 10px 0;
