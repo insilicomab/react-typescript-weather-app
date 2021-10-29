@@ -31,7 +31,7 @@ export const useCityWeather = () => {
         setCity("");
         setLoading(false);
       })
-      .catch((err) =>
+      .catch((error) =>
         alert(
           "エラーが発生しました。ページをリロードして、もう一度トライしてください。"
         )

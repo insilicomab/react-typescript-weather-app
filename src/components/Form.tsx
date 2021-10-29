@@ -8,12 +8,11 @@ export const Form: FC<FormType> = (props) => {
       <input
         type="text"
         name="city"
-        placeholder="都市名"
+        placeholder="City"
         onChange={(e) => setCity(e.target.value)}
+        value={city}
       />
-      <button type="submit" value={city}>
-        Get Weather
-      </button>
+      <button type="submit">Get Weather</button>
     </form>
   );
 };
