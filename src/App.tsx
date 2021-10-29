@@ -4,6 +4,7 @@ import { Results } from "./components/Results";
 import { Title } from "./components/Title";
 import { ResultsType } from "./type/results";
 import { Loading } from "./components/Loading";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -20,17 +21,17 @@ function App() {
   const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    fetch(
-      `http://api.weatherapi.com/v1/current.json?key=53535532cc1b4eada6c125622212908&q=${city}&aqi=no`
-    )
-      .then((res) => res.json())
-      .then((data) => {
+    axios
+      .get(
+        `http://api.weatherapi.com/v1/current.json?key=53535532cc1b4eada6c125622212908&q=${city}&aqi=no`
+      )
+      .then((res) => {
         setResults({
-          country: data.location.country,
-          cityName: data.location.name,
-          temperature: data.current.temp_c,
-          conditionText: data.current.condition.text,
-          icon: data.current.condition.icon,
+          country: res.data.location.country,
+          cityName: res.data.location.name,
+          temperature: res.data.current.temp_c,
+          conditionText: res.data.current.condition.text,
+          icon: res.data.current.condition.icon,
         });
         setCity("");
         setLoading(false);
