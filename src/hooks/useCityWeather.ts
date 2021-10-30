@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ResultsType } from "../type/results";
 import axios from "axios";
+import { CityWeather } from "../type/api/cityWeather";
 
 export const useCityWeather = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -9,7 +10,7 @@ export const useCityWeather = () => {
     time: "",
     country: "",
     cityName: "",
-    temperature: "",
+    temperature: null,
     conditionText: "",
     icon: "",
   });
@@ -18,7 +19,7 @@ export const useCityWeather = () => {
     e.preventDefault();
     setLoading(true);
     axios
-      .get(
+      .get<CityWeather>(
         `http://api.weatherapi.com/v1/current.json?key=53535532cc1b4eada6c125622212908&q=${city}&aqi=no`
       )
       .then((res) => {
