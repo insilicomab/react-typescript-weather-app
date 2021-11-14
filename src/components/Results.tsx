@@ -5,8 +5,7 @@ type Props = {
   results: ResultsType;
 };
 
-export const Results: FC<Props> = (props) => {
-  const { results } = props;
+export const Results: FC<Props> = ({ results }) => {
   const { time, cityName, country, temperature, conditionText, icon } = results;
   return (
     <>
