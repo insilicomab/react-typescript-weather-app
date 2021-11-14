@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { FormType } from "../type/form";
 
-export const Form: FC<FormType> = (props) => {
+export const Form: FC<FormType> = memo((props) => {
   const { city, setCity, getWeather } = props;
   return (
     <form onSubmit={getWeather}>
@@ -15,4 +15,4 @@ export const Form: FC<FormType> = (props) => {
       <button type="submit">Get Weather</button>
     </form>
   );
-};
+});

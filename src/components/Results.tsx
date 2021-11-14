@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { ResultsType } from "../type/results";
 
 type Props = {
   results: ResultsType;
 };
 
-export const Results: FC<Props> = ({ results }) => {
+export const Results: FC<Props> = memo(({ results }) => {
   const { time, cityName, country, temperature, conditionText, icon } = results;
   return (
     <>
@@ -25,4 +25,4 @@ export const Results: FC<Props> = ({ results }) => {
       )}
     </>
   );
-};
+});
